@@ -1,37 +1,73 @@
+import dotEnv from 'dotenv'
+
+const env = process.env.NODE_ENV
+const path =
+  env === 'local'
+    ? '.env.local'
+    : env === 'development'
+    ? '.env.development'
+    : '.env'
+
+dotEnv.config({ path })
+
 export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: 'thumbnail-maker',
-    htmlAttrs: {
-      lang: 'en',
-    },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  ssr: true,
+
+  telemetry: false,
+
+  target: 'server',
+
+  // loading: '~/components/default/default/loading.vue',
+
+  css: ['~/assets/scss/global.scss'],
+
+  styleResources: {
+    scss: ['@/assets/scss/mixins.scss'],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  head: {
+    title: 'thumbnail-maker',
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+    link: [{ rel: 'icon', type: 'image/png', href: '' }],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, height=device-height, maximum-scale=1',
+      },
+      {
+        name: 'og:image',
+        content: '',
+      },
+    ],
+  },
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
+  build: {
+    optimizeCSS: true,
+
+    extractCSS: {
+      ignoreOrder: true,
+    },
+  },
+
+  axios: {
+    baseURL: process.env.API_URL,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  },
+
+  modules: ['@nuxtjs/axios'],
+
+  plugins: [
+    '@/plugins/globalFnc.js',
+    '@/plugins/globalComponents.js',
+    { src: '~/plugins/notifications-ssr', ssr: true },
+    { src: '~/plugins/notifications-client', ssr: false },
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  buildModules: ['@nuxtjs/style-resources'],
 }
