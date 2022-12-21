@@ -1,11 +1,10 @@
 <template>
-  <div>
+  <div class="wrap">
     <div @click="getPhoto">안녕</div>
-    <img
-      :src="imageSrc"
-      alt="image"
-      :style="`background-image: url(${imageSrc})`"
-    />
+    <div class="par">
+      <img :src="imageSrc" alt="imageSrc" />
+      <div class="filter" />
+    </div>
   </div>
 </template>
 
@@ -27,11 +26,11 @@ export default {
           .get('https://api.unsplash.com/photos/random', {
             params: {
               client_id: 'bVPTgly_pHzoZu1lRrCUMw9imwIo0RTspGo3Vg_EwV0',
-              count: 1,
+              topics: 't/3d-renders',
             },
           })
           .then((res) => {
-            this.imageSrc = res.data[0].urls.regular
+            this.imageSrc = res.data.urls.regular
           })
       } catch (err) {
         alert(err)
@@ -42,8 +41,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-img {
-  width: 1280px;
-  height: 720px;
+.wrap {
+  @include flex-item(center);
+  .par {
+    position: relative;
+    img {
+      width: 640px;
+      height: 360px;
+      object-fit: cover;
+    }
+    .filter {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 640px;
+      height: 360px;
+      backdrop-filter: blur(10px);
+    }
+  }
 }
 </style>
