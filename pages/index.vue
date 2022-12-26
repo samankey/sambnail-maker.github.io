@@ -1,22 +1,18 @@
 <template>
   <div class="box">
     <div class="wrap">
-      <div class="canvas" :style="`background-color: ${color}`">
-        <p class="text fill Headline">안녕안녕</p>
-        <p class="text line Headline">안녕안녕</p>
-        <p class="text fill Headline">🦄</p>
-        <p class="text line Headline">apple</p>
-        <p class="text fill Headline">🍟</p>
-        <p class="text fill Headline">⚽️</p>
-        <p class="text fill Headline">sorry</p>
-        <p class="text line Headline">my name is</p>
-        <p class="text fill Headline">🦄</p>
-        <p class="text line Headline">안녕안녕</p>
-        <p class="text fill Headline">🍟</p>
-        <p class="text fill Headline">⚽️</p>
+      <div class="canvas">
+        <span
+          v-for="(tag, index) in tagList"
+          :key="index"
+          class="text fill Headline"
+        >
+          {{ tag }}
+        </span>
       </div>
-      <input v-model="color" type="color" />
     </div>
+    <input v-model="tagText" type="text" />
+    <button @click="addTag">추가</button>
   </div>
 </template>
 
@@ -26,12 +22,31 @@ export default {
 
   data() {
     return {
-      color: '',
+      tagText: '',
+      tagList: [],
     }
   },
 
   methods: {
-    getPhoto() {},
+    addTag() {
+      if (!this.tagText) {
+        alert('없어')
+      } else {
+        this.tagList.push(this.tagText)
+        this.tagText = ''
+        this.calcTextLengthByByte()
+      }
+    },
+
+    calcTextLengthByByte() {
+      const joinedText = this.tagList.join('')
+      let b
+      let c
+      let i
+      for (b = i = 0; (c = joinedText.charCodeAt(i++)); b += c >> 7 ? 2 : 1);
+      console.log(b)
+      return b
+    },
   },
 }
 </script>
