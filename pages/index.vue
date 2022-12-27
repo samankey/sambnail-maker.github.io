@@ -22,45 +22,51 @@ export default {
 
   data() {
     return {
-      totalByte: 0,
+      // totalByte: 0,
+      height: 0,
       tagText: '',
       tagList: [],
     }
   },
 
   computed: {
-    // calcTextBoxHeight() {
+    //   calcTextLengthByByte() {
+    //     const emojiExp = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})/gu
+    //     const textList = this.tagList.join('').replace(emojiExp, 'A').split('')
+    //     const byte = textList
+    //       .map((text) => {
+    //         const code = text.charCodeAt(0)
+    //         return code > 127 || (code > 64 && code < 91) ? 2 : 1
+    //       })
+    //       .reduce((acc, cur) => {
+    //         return acc + cur
+    //       }, 0)
+    //     return byte
+    //   },
+  },
 
-    //   return height
-    // },
-
-    calcTextLengthByByte() {
-      const emojiExp = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})/gu
-      const textList = this.tagList.join('').replace(emojiExp, 'A').split('')
-      const byte = textList
-        .map((text) => {
-          const code = text.charCodeAt(0)
-          return code > 127 || (code > 64 && code < 91) ? 2 : 1
-        })
-        .reduce((acc, cur) => {
-          return acc + cur
-        }, 0)
-      return byte
-    },
+  updated() {
+    this.setHeight()
   },
 
   methods: {
     addTag() {
-      const height = document.querySelector('.textBox')?.offsetHeight
       if (!this.tagText) {
         alert('없어')
-      } else if (height > 256) {
-        alert('이제 그만')
       } else {
         this.tagList.push(this.tagText)
         this.tagText = ''
-        this.totalByte = this.calcTextLengthByByte
       }
+    },
+
+    setHeight() {
+      const height = document.querySelector('.textBox')?.offsetHeight
+      this.height = height
+      if (this.height > 256) {
+        this.tagList.pop()
+        alert('끝')
+      }
+      console.log(this.height)
     },
   },
 }
