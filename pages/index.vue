@@ -11,7 +11,6 @@
         </span>
       </div>
     </div>
-
     <input v-model="tagText" type="text" />
     <button @click="addTag">추가</button>
   </div>
@@ -30,6 +29,11 @@ export default {
   },
 
   computed: {
+    // calcTextBoxHeight() {
+
+    //   return height
+    // },
+
     calcTextLengthByByte() {
       const emojiExp = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})/gu
       const textList = this.tagList.join('').replace(emojiExp, 'A').split('')
@@ -47,17 +51,16 @@ export default {
 
   methods: {
     addTag() {
+      const height = document.querySelector('.textBox')?.offsetHeight
       if (!this.tagText) {
         alert('없어')
-      } else if (this.calcTextLengthByByte > 46) {
+      } else if (height > 256) {
         alert('이제 그만')
       } else {
         this.tagList.push(this.tagText)
         this.tagText = ''
         this.totalByte = this.calcTextLengthByByte
       }
-      const height = document.querySelector('.text')?.offsetHeight
-      console.log(height)
     },
   },
 }
