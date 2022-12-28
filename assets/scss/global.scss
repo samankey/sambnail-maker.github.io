@@ -51,6 +51,7 @@ body {
 }
 #__nuxt,
 #__layout {
+  width: 100%;
   height: 100%;
 }
 
@@ -247,19 +248,19 @@ body {
 
 // border color
 .bd_Gray {
-  border: 1px solid $LineGray;
+  border: 2px solid $Black;
 }
 .bd_Top_Gray {
-  border-top: 1px solid $LineGray;
+  border-top: 2px solid $Black;
 }
 .bd_Btm_Gray {
-  border-bottom: 1px solid $LineGray;
+  border-bottom: 2px solid $Black;
 }
 .bd_left_Gray {
-  border-left: 1px solid $LineGray;
+  border-left: 2px solid $Black;
 }
 .bd_right_Gray {
-  border-right: 1px solid $LineGray;
+  border-right: 2px solid $Black;
 }
 
 .bg_White {
@@ -271,15 +272,15 @@ body {
 }
 
 .bd_Black {
-  border: 3px solid $Black;
+  border: 2px solid $Black;
 }
 
 .bd_White {
-  border: 3px solid $White;
+  border: 2px solid $White;
 }
 
 .bd_transparent {
-  border: 3px solid transparent;
+  border: 2px solid transparent;
 }
 
 .ft_Black {

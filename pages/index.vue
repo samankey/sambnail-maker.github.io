@@ -1,6 +1,7 @@
 <template>
   <div class="box">
-    <div class="canvas bd_Gray">
+    <div class="title Title1 bd_Btm_Gray">thumbnail maker</div>
+    <div class="canvas bd_Gray" :class="getTheme.bg">
       <div v-if="tagList.length > 0" class="textBox">
         <Tag
           v-for="(tag, index) in tagList"
@@ -28,7 +29,7 @@
         {{ color.title }}
       </button>
     </div>
-    <input v-model="tagText" type="text" />
+    <input v-model="tagText" type="text" @keypress.enter="addTag" />
     <button @click="addTag">추가</button>
   </div>
 </template>
@@ -38,6 +39,7 @@ import themeList from '@/assets/data/theme.json';
 import Tag from '@/components/tag/tag';
 
 export default {
+  layout: 'main',
   components: {
     Tag
   },
@@ -61,7 +63,8 @@ export default {
       );
       const theme = filteredTheme[0];
       return {
-        fill: `${theme.bg} ${theme.fill} ${theme.bd} ${theme.fill_ft}`,
+        bg: `${theme.bg}`,
+        fill: `${theme.fill} ${theme.bd} ${theme.fill_ft}`,
         border: `${theme.bd} ${theme.bd_ft}`,
         ghost: `${theme.bd_ft} bd_transparent`
       };
@@ -109,6 +112,10 @@ export default {
   text-align: center;
   padding: 1rem;
 
+  .title {
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+  }
   .canvas {
     padding: 2rem;
     width: 640px;

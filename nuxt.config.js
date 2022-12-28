@@ -1,14 +1,14 @@
-import dotEnv from 'dotenv'
+import dotEnv from 'dotenv';
 
-const env = process.env.NODE_ENV
+const env = process.env.NODE_ENV;
 const path =
   env === 'local'
     ? '.env.local'
     : env === 'development'
     ? '.env.development'
-    : '.env'
+    : '.env';
 
-dotEnv.config({ path })
+dotEnv.config({ path });
 
 export default {
   ssr: true,
@@ -17,12 +17,10 @@ export default {
 
   target: 'server',
 
-  // loading: '~/components/default/default/loading.vue',
-
   css: ['~/assets/scss/global.scss'],
 
   styleResources: {
-    scss: ['@/assets/scss/mixins.scss'],
+    scss: ['@/assets/scss/mixins.scss']
   },
 
   head: {
@@ -35,29 +33,29 @@ export default {
       {
         name: 'viewport',
         content:
-          'width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, height=device-height, maximum-scale=1',
+          'width=device-width, initial-scale=1, minimum-scale=1.0, height=device-height, maximum-scale=1'
       },
       {
         name: 'og:image',
-        content: '',
-      },
-    ],
+        content: ''
+      }
+    ]
   },
 
   build: {
     optimizeCSS: true,
 
     extractCSS: {
-      ignoreOrder: true,
-    },
+      ignoreOrder: true
+    }
   },
 
   axios: {
     baseURL: process.env.API_URL,
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
+      'Content-Type': 'application/json'
+    }
   },
 
   modules: ['@nuxtjs/axios'],
@@ -66,8 +64,8 @@ export default {
     '@/plugins/globalFnc.js',
     '@/plugins/globalComponents.js',
     { src: '~/plugins/notifications-ssr', ssr: true },
-    { src: '~/plugins/notifications-client', ssr: false },
+    { src: '~/plugins/notifications-client', ssr: false }
   ],
 
-  buildModules: ['@nuxtjs/style-resources'],
-}
+  buildModules: ['@nuxtjs/style-resources']
+};
