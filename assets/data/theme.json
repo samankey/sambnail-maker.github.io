@@ -1,0 +1,20 @@
+{
+  "color": [
+    {
+      "title": "w_b",
+      "bg": "bg_White",
+      "bd": "bd_Black",
+      "fill": "bg_Black",
+      "bd_ft": "ft_Black",
+      "fill_ft": "ft_White"
+    },
+    {
+      "title": "b_w",
+      "bg": "bg_Black",
+      "bd": "bd_White",
+      "fill": "bg_White",
+      "bd_ft": "ft_White",
+      "fill_ft": "ft_Black"
+    }
+  ]
+}

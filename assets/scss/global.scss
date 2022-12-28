@@ -41,16 +41,6 @@
       format('woff2');
 }
 
-@font-face {
-  font-weight: 400;
-  font-style: normal;
-  font-family: 'Material Icons';
-
-  src: local('Material Icons'), local('MaterialIcons-Regular'),
-    local('MaterialIcons-Outlined'),
-    url(~assets/fonts/MaterialIcons.woff2) format('woff2');
-}
-
 html,
 body {
   font-size: 16px;
@@ -111,147 +101,119 @@ body {
   letter-spacing: -0.03rem;
 }
 
-/* 기타 Font */
-.ft_h5 {
-  font-size: 0.8rem;
-  font-weight: 400;
-}
-.ft_h3 {
-  font-size: 1.15rem;
-  font-weight: 500;
-}
-.fc_4 {
-  color: rgba(0, 17, 41, 0.4) !important;
-}
-.fc_10 {
-  color: #001129 !important;
-}
-
-/* 기타 bg */
-.fc_blue {
-  color: #005adb !important;
-  background-color: #e6effc;
-}
-.bg_blue {
-  background-color: #005adb;
-  color: #fff !important;
-  border: 1px solid #005adb;
-  border-right: none;
-}
-
 /*background-color*/
-.bg_DarkBlue {
-  background-color: $DarkBlue;
-}
-.bg_DeepBlue {
-  background-color: $DeepBlue;
-}
-.bg_Blue {
-  background-color: $Blue;
-}
-.bg_Blue_30 {
-  background-color: $Blue_30;
-}
-.bg_Blue_10 {
-  background-color: $Blue_10;
-}
-.bg_Green {
-  background-color: $Green;
-}
-.bg_Green_10 {
-  background-color: $Green_10;
-}
-.bg_Orange {
-  background-color: $Orange;
-}
-.bg_Orange_10 {
-  background-color: $Orange_10;
-}
-.bg_Red {
-  background-color: $Red;
-}
-.bg_Red_10 {
-  background-color: $Red_10;
-}
-.bg_Orange {
-  background-color: $Orange;
-}
-.bg_Orange_10 {
-  background-color: $Orange_10;
-}
-.bg_DarkGray {
-  background-color: $DarkGray;
-}
-.bg_MidGray {
-  background-color: $MidGray;
-}
-.bg_LightGray {
-  background-color: $LightGray;
-}
-.bg_HoverGray {
-  background-color: $HoverGray;
-}
-.bg_BackGray {
-  background-color: $BackGray;
-}
+// .bg_DarkBlue {
+//   background-color: $DarkBlue;
+// }
+// .bg_DeepBlue {
+//   background-color: $DeepBlue;
+// }
+// .bg_Blue {
+//   background-color: $Blue;
+// }
+// .bg_Blue_30 {
+//   background-color: $Blue_30;
+// }
+// .bg_Blue_10 {
+//   background-color: $Blue_10;
+// }
+// .bg_Green {
+//   background-color: $Green;
+// }
+// .bg_Green_10 {
+//   background-color: $Green_10;
+// }
+// .bg_Orange {
+//   background-color: $Orange;
+// }
+// .bg_Orange_10 {
+//   background-color: $Orange_10;
+// }
+// .bg_Red {
+//   background-color: $Red;
+// }
+// .bg_Red_10 {
+//   background-color: $Red_10;
+// }
+// .bg_Orange {
+//   background-color: $Orange;
+// }
+// .bg_Orange_10 {
+//   background-color: $Orange_10;
+// }
+// .bg_DarkGray {
+//   background-color: $DarkGray;
+// }
+// .bg_MidGray {
+//   background-color: $MidGray;
+// }
+// .bg_LightGray {
+//   background-color: $LightGray;
+// }
+// .bg_HoverGray {
+//   background-color: $HoverGray;
+// }
+// .bg_BackGray {
+//   background-color: $BackGray;
+// }
 
-.bg_Black_100 {
-  background-color: $Black_100;
-}
-.bg_Black_70 {
-  background-color: $Black_70;
-}
-.bg_Black_40 {
-  background-color: $Black_40;
-}
-.bg_Black_20 {
-  background-color: $Black_20;
-}
+// .bg_Black_100 {
+//   background-color: $Black_100;
+// }
+// .bg_Black_70 {
+//   background-color: $Black_70;
+// }
+// .bg_Black_40 {
+//   background-color: $Black_40;
+// }
+// .bg_Black_20 {
+//   background-color: $Black_20;
+// }
 
-.bg_White_100 {
-  background-color: $White_100;
-}
-.bg_White_70 {
-  background-color: $White_70;
-}
-.bg_White_40 {
-  background-color: $White_40;
-}
-.bg_White_20 {
-  background-color: $White_20;
-}
+// .bg_White_100 {
+//   background-color: $White_100;
+// }
+// .bg_White_70 {
+//   background-color: $White_70;
+// }
+// .bg_White_40 {
+//   background-color: $White_40;
+// }
+// .bg_White_20 {
+//   background-color: $White_20;
+// }
 
 /*font color*/
-.ft_DarkBlue {
-  color: $DarkBlue;
-}
-.ft_DeepBlue {
-  color: $DeepBlue;
-}
-.ft_Blue {
-  color: $Blue;
-}
-.ft_Blue_10 {
-  color: $Blue_10;
-}
-.ft_Green {
-  color: $Green;
-}
-.ft_Green_10 {
-  color: $Green_10;
-}
-.ft_Red {
-  color: $Red;
-}
-.ft_Red_10 {
-  color: $Red_10;
-}
-.ft_Orange {
-  color: $Orange;
-}
-.ft_Orange_10 {
-  color: $Orange_10;
-}
+// .ft_DarkBlue {
+//   color: $DarkBlue;
+// }
+// .ft_DeepBlue {
+//   color: $DeepBlue;
+// }
+// .ft_Blue {
+//   color: $Blue;
+// }
+// .ft_Blue_10 {
+//   color: $Blue_10;
+// }
+// .ft_Green {
+//   color: $Green;
+// }
+// .ft_Green_10 {
+//   color: $Green_10;
+// }
+// .ft_Red {
+//   color: $Red;
+// }
+// .ft_Red_10 {
+//   color: $Red_10;
+// }
+// .ft_Orange {
+//   color: $Orange;
+// }
+// .ft_Orange_10 {
+//   color: $Orange_10;
+// }
 .ft_Black_100 {
   color: $Black_100;
 } /* ft_100 */
@@ -264,24 +226,24 @@ body {
 .ft_Black_20 {
   color: $Black_20;
 } /* ft_20 */
-.ft_White_100 {
-  color: $White_100;
-} /* ft_w */
-.ft_White_70 {
-  color: $White_70;
-} /* ft_w_70 */
-.ft_White_40 {
-  color: $White_40;
-}
-.ft_White_20 {
-  color: $White_20;
-}
-.ft_MidGray {
-  color: $MidGray;
-}
-.ft_DarkGray {
-  color: $DarkGray;
-}
+// .ft_White_100 {
+//   color: $White_100;
+// } /* ft_w */
+// .ft_White_70 {
+//   color: $White_70;
+// } /* ft_w_70 */
+// .ft_White_40 {
+//   color: $White_40;
+// }
+// .ft_White_20 {
+//   color: $White_20;
+// }
+// .ft_MidGray {
+//   color: $MidGray;
+// }
+// .ft_DarkGray {
+//   color: $DarkGray;
+// }
 
 // border color
 .bd_Gray {
@@ -300,37 +262,32 @@ body {
   border-right: 1px solid $LineGray;
 }
 
-// svg color
-.svg_Black_100 {
-  filter: invert(6%) sepia(40%) saturate(3603%) hue-rotate(198deg)
-    brightness(95%) contrast(104%);
-}
-.svg_White_100 {
-  filter: invert(95%) sepia(5%) saturate(0%) hue-rotate(355deg) brightness(103%)
-    contrast(106%);
-}
-.svg_Blue {
-  filter: invert(25%) sepia(97%) saturate(7500%) hue-rotate(210deg)
-    brightness(99%) contrast(101%);
+.bg_White {
+  background-color: $White;
 }
 
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px; /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
+.bg_Black {
+  background-color: $Black;
+}
 
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
+.bd_Black {
+  border: 3px solid $Black;
+}
+
+.bd_White {
+  border: 3px solid $White;
+}
+
+.bd_transparent {
+  border: 3px solid transparent;
+}
+
+.ft_Black {
+  color: $Black;
+}
+
+.ft_White {
+  color: $White;
 }
 
 * {
