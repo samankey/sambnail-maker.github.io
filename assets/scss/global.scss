@@ -41,6 +41,11 @@
       format('woff2');
 }
 
+@font-face {
+  font-family: 'Mermaid1001'; /* 사용하고 싶은 font-family명을 지정 */
+  src: url('~assets/fonts/mermaid/Mermaid1001.ttf') format('opentype'); /* 폰트파일 불러오기 */
+}
+
 html,
 body {
   font-size: 16px;
@@ -256,13 +261,13 @@ body {
 .bd_Btm_Gray {
   border-bottom: 2px solid $Black;
 }
-.bd_left_Gray {
+.bd_Left_Gray {
   border-left: 2px solid $Black;
 }
-.bd_right_Gray {
+.bd_Right_Gray {
   border-right: 2px solid $Black;
 }
-
+//
 .bg_White {
   background-color: $White;
 }
@@ -271,6 +276,19 @@ body {
   background-color: $Black;
 }
 
+.bg_Blue {
+  background-color: $Blue;
+}
+
+.bg_Neon {
+  background-color: $Neon;
+}
+
+.bg_Yellow {
+  background-color: $Yellow;
+}
+
+//
 .bd_Black {
   border: 2px solid $Black;
 }
@@ -279,16 +297,41 @@ body {
   border: 2px solid $White;
 }
 
+.bd_Blue {
+  border: 2px solid $Blue;
+}
+
+.bd_Neon {
+  border: 2px solid $Neon;
+}
+
+.bd_Yellow {
+  border: 2px solid $Yellow;
+}
+
 .bd_transparent {
   border: 2px solid transparent;
 }
 
+//
 .ft_Black {
   color: $Black;
 }
 
 .ft_White {
   color: $White;
+}
+
+.ft_Blue {
+  color: $Blue;
+}
+
+.ft_Neon {
+  color: $Neon;
+}
+
+.ft_Yellow {
+  color: $Yellow;
 }
 
 * {

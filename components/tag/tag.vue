@@ -1,7 +1,10 @@
 <template>
-  <span class="text Headline" :class="getTheme">
-    {{ tag.text }}
-  </span>
+  <div class="tagItemBox" :class="getTheme">
+    <span class="text Headline">
+      {{ tag.text }}
+    </span>
+    <button class="icon bd_Gray" @click="deleteTag">x</button>
+  </div>
 </template>
 
 <script>
@@ -26,15 +29,50 @@ export default {
         ? this.className.border
         : this.className.ghost;
     }
+  },
+
+  methods: {
+    deleteTag() {
+      this.$emit('deleteTag', this.tag.text);
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.text {
+.tagItemBox {
+  position: relative;
   margin: 0.25rem;
   padding: 0.5rem 0.75rem;
   border-radius: 6.25rem;
-  word-break: break-all;
+
+  .text {
+    word-break: break-all;
+    cursor: default;
+  }
+
+  .icon {
+    position: absolute;
+    top: -0.75rem;
+    right: -0.25rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 6.25rem;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+  }
+
+  &:hover {
+    .icon {
+      position: absolute;
+      top: -0.75rem;
+      right: -0.25rem;
+      @include flex-item(center);
+      width: 2rem;
+      height: 2rem;
+      background-color: #fff;
+      opacity: 100;
+    }
+  }
 }
 </style>

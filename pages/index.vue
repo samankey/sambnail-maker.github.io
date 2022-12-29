@@ -1,36 +1,52 @@
 <template>
   <div class="box">
-    <div class="title Title1 bd_Btm_Gray">thumbnail maker</div>
-    <div class="canvas bd_Gray" :class="getTheme.bg">
+    <div class="title Title1">@samankeyc</div>
+    <div class="canvas bd_Top_Gray bd_Btm_Gray" :class="getTheme.bg">
       <div v-if="tagList.length > 0" class="textBox">
         <Tag
           v-for="(tag, index) in tagList"
           :key="index"
           :tag="tag"
           :class-name="getTheme"
+          @deleteTag="deleteTag"
         />
       </div>
     </div>
-    <div class="typeButton">
-      <button
-        v-for="(type, index) in types"
-        :key="index + type"
-        @click="setType(type)"
-      >
-        {{ type }}
-      </button>
+    <div class="aa bd_Btm_Gray">save</div>
+    <div class="tagInputBox bd_Btm_Gray">
+      <input
+        v-model="tagText"
+        class="tagInput"
+        type="text"
+        placeholder="put your tag on here!"
+        @keypress.enter="addTag"
+      />
+      <div class="typeButtonBox bd_Right_Gray bd_Left_Gray">
+        <button
+          v-for="(type, index) in types"
+          :key="index + type"
+          class="typeButton"
+          :class="tagType === type ? 'bg_Black ft_White' : ''"
+          @click="setType(type)"
+        >
+          {{ type }}
+        </button>
+      </div>
+      <button class="addButton bg_Black ft_White" @click="addTag">add</button>
     </div>
-    <div class="typeButton">
+    <div class="themeBox">
       <button
         v-for="(color, index) in themeList"
         :key="index + color"
+        class="themeItem"
+        :class="`${color.bg}`"
         @click="setTheme(color.title)"
       >
-        {{ color.title }}
+        <div class="themeFill" :class="`${color.fill}`">
+          <div class="themeText Title1" :class="`${color.fill_ft}`">a</div>
+        </div>
       </button>
     </div>
-    <input v-model="tagText" type="text" @keypress.enter="addTag" />
-    <button @click="addTag">추가</button>
   </div>
 </template>
 
@@ -93,6 +109,16 @@ export default {
         this.tagText = '';
         this.tagType = 'fill';
       }
+      console.log(this.tagList);
+    },
+
+    deleteTag(tag) {
+      const index = this.tagList
+        .map((item) => {
+          return item.text === tag;
+        })
+        .indexOf();
+      this.tagList.splice(index, 1);
     },
 
     setHeight() {
@@ -110,11 +136,10 @@ export default {
 <style lang="scss" scoped>
 .box {
   text-align: center;
-  padding: 1rem;
 
   .title {
-    margin-bottom: 3rem;
-    padding-bottom: 1rem;
+    padding: 0.25rem 0.5rem;
+    text-align: right;
   }
   .canvas {
     padding: 2rem;
@@ -126,6 +151,46 @@ export default {
       align-content: flex-start;
       align-items: flex-start;
       flex-wrap: wrap;
+    }
+  }
+
+  .aa {
+    padding: 0.25rem 0.5rem;
+    text-align: center;
+  }
+
+  .tagInputBox {
+    @include flex-item;
+
+    .tagInput {
+      flex: 1;
+      text-align: center;
+    }
+
+    .typeButtonBox {
+      @include flex-item(space-between);
+      flex: 1;
+      .typeButton {
+        flex: 1;
+        padding: 0.25rem 0.5rem;
+      }
+    }
+
+    .addButton {
+      padding: 0.25rem 0.5rem;
+    }
+  }
+
+  .themeBox {
+    @include flex-item;
+    .themeItem {
+      flex: 1;
+      padding: 0.5rem;
+
+      .themeFill {
+        padding: 0.5rem;
+        border-radius: 6.25rem;
+      }
     }
   }
 }
