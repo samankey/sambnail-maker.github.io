@@ -53,7 +53,7 @@ export default {
 
   .icon {
     position: absolute;
-    top: -0.75rem;
+    top: -0.5rem;
     right: -0.25rem;
     width: 2rem;
     height: 2rem;
@@ -65,7 +65,7 @@ export default {
   &:hover {
     .icon {
       position: absolute;
-      top: -0.75rem;
+      top: -0.5rem;
       right: -0.25rem;
       @include flex-item(center);
       width: 2rem;

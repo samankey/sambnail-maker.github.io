@@ -25,42 +25,41 @@ export default {
     return {
       totalByte: 0,
       tagText: '',
-      tagList: [],
-    }
+      tagList: []
+    };
   },
 
   computed: {
     calcTextLengthByByte() {
-      const emojiExp = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})/gu
-      const textList = this.tagList.join('').replace(emojiExp, 'A').split('')
+      const emojiExp = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})/gu;
+      const textList = this.tagList.join('').replace(emojiExp, 'A').split('');
       const byte = textList
         .map((text) => {
-          const code = text.charCodeAt(0)
-          return code > 127 || (code > 64 && code < 91) ? 2 : 1
+          const code = text.charCodeAt(0);
+          return code > 127 || (code > 64 && code < 91) ? 2 : 1;
         })
         .reduce((acc, cur) => {
-          return acc + cur
-        }, 0)
-      return byte
-    },
+          return acc + cur;
+        }, 0);
+      return byte;
+    }
   },
 
   methods: {
     addTag() {
       if (!this.tagText) {
-        alert('없어')
+        alert('없어');
       } else if (this.calcTextLengthByByte > 46) {
-        alert('이제 그만')
+        alert('이제 그만');
       } else {
-        this.tagList.push(this.tagText)
-        this.tagText = ''
-        this.totalByte = this.calcTextLengthByByte
+        this.tagList.push(this.tagText);
+        this.tagText = '';
+        this.totalByte = this.calcTextLengthByByte;
       }
-      const height = document.querySelector('.text')?.offsetHeight
-      console.log(height)
-    },
-  },
-}
+      const height = document.querySelector('.text')?.offsetHeight;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

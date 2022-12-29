@@ -116,9 +116,7 @@ export default {
       } else {
         this.tagList.push(text);
         this.tagText = '';
-        this.tagType = 'fill';
       }
-      console.log(this.tagList);
     },
 
     deleteTag(tag) {
@@ -126,7 +124,7 @@ export default {
         .map((item) => {
           return item.text === tag;
         })
-        .indexOf();
+        .indexOf(true);
       this.tagList.splice(index, 1);
     },
 
