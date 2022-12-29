@@ -1,7 +1,6 @@
 <template>
   <div class="box">
-    <div class="title Title1">@samankeyc</div>
-    <div class="canvas bd_Top_Gray bd_Btm_Gray" :class="getTheme.bg">
+    <div class="canvas bd_Btm_Gray" :class="getTheme.bg">
       <div v-if="tagList.length > 0" class="textBox">
         <Tag
           v-for="(tag, index) in tagList"
@@ -11,8 +10,11 @@
           @deleteTag="deleteTag"
         />
       </div>
+      <div class="sign" :class="getTheme.ghost">
+        {{ signText }}
+      </div>
     </div>
-    <div class="aa bd_Btm_Gray">save</div>
+    <button class="save bd_Btm_Gray">save</button>
     <div class="tagInputBox bd_Btm_Gray">
       <input
         v-model="tagText"
@@ -34,7 +36,13 @@
       </div>
       <button class="addButton bg_Black ft_White" @click="addTag">add</button>
     </div>
-    <div class="themeBox">
+    <input
+      v-model="signText"
+      class="signInput"
+      type="text"
+      placeholder="put your tag on here!"
+    />
+    <div class="themeBox bd_Top_Gray">
       <button
         v-for="(color, index) in themeList"
         :key="index + color"
@@ -63,6 +71,7 @@ export default {
   data() {
     return {
       height: 0,
+      signText: '',
       tagText: '',
       tagType: 'fill',
       tagList: [],
@@ -142,7 +151,8 @@ export default {
     text-align: right;
   }
   .canvas {
-    padding: 2rem;
+    position: relative;
+    padding: 1.5rem;
     width: 640px;
     height: 360px;
 
@@ -152,9 +162,16 @@ export default {
       align-items: flex-start;
       flex-wrap: wrap;
     }
+
+    .sign {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+    }
   }
 
-  .aa {
+  .save {
+    width: 100%;
     padding: 0.25rem 0.5rem;
     text-align: center;
   }
@@ -179,6 +196,12 @@ export default {
     .addButton {
       padding: 0.25rem 0.5rem;
     }
+  }
+
+  .signInput {
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    text-align: center;
   }
 
   .themeBox {

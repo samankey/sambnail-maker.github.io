@@ -1,9 +1,11 @@
 <template>
   <div class="main bg_White">
     <div class="mainBox">
-      <header class="title Headline ft_White bg_Black bd_Gray">
+      <!-- <header class="title Headline ft_White bg_Black bd_Gray">
         ✨ thumbnail maker ✨
-      </header>
+      </header> -->
+      <!-- <header class="title Headline">thumbnail-maker</header> -->
+      <header class="title">THUMBNAILㅡ<br />MAKER</header>
       <Nuxt class="bd_Gray" />
     </div>
   </div>
@@ -15,13 +17,12 @@
   height: 100%;
 
   .mainBox {
-    text-align: center;
-
     .title {
-      margin-bottom: 1.5rem;
-      padding: 1rem 1.25rem;
+      padding-bottom: 1.25rem;
       border-radius: 6.25rem;
-      font-family: 'Mermaid1001', sans-serif;
+      font-size: 3.75rem;
+      font-weight: 700;
+      /* font-family: 'Mermaid1001', sans-serif; */
     }
   }
 }
