@@ -3,13 +3,20 @@
     <span class="text Headline">
       {{ tag.text }}
     </span>
-    <button class="icon bd_Gray" @click="deleteTag">x</button>
+    <button v-if="type !== 'noItem'" class="icon bd_Gray" @click="deleteTag">
+      x
+    </button>
   </div>
 </template>
 
 <script>
 export default {
   props: {
+    type: {
+      type: String,
+      default: ''
+    },
+
     tag: {
       type: Object,
       default: () => {}

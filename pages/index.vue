@@ -10,6 +10,15 @@
           @deleteTag="deleteTag"
         />
       </div>
+      <div v-else class="textBox">
+        <Tag
+          v-for="(tag, index) in noItem"
+          :key="index"
+          :type="'noItem'"
+          :tag="tag"
+          :class-name="getTheme"
+        />
+      </div>
       <div class="sign" :class="getTheme.ghost">
         {{ signText }}
       </div>
@@ -40,7 +49,7 @@
       v-model="signText"
       class="signInput"
       type="text"
-      placeholder="put your tag on here!"
+      placeholder="signiture"
     />
     <div class="themeBox bd_Top_Gray">
       <button
@@ -75,6 +84,12 @@ export default {
       tagText: '',
       tagType: 'fill',
       tagList: [],
+      noItem: [
+        { text: 'write', type: 'fill' },
+        { text: 'your', type: 'ghost' },
+        { text: 'tags', type: 'border' },
+        { text: '🔖', type: 'ghost' }
+      ],
       types: ['fill', 'border', 'ghost'],
       themeTitle: 'w_b',
       themeList: themeList.color
