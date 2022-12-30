@@ -29,7 +29,7 @@
         v-model="tagText"
         class="tagInput"
         type="text"
-        placeholder="put your tag on here!"
+        placeholder="✍🏻 put your tag on here!"
         @keypress.enter="addTag"
       />
       <div class="typeButtonBox bd_Right_Gray bd_Left_Gray">
@@ -49,7 +49,7 @@
       v-model="signText"
       class="signInput"
       type="text"
-      placeholder="signiture"
+      placeholder="✍🏻 name here!"
     />
     <div class="themeBox bd_Top_Gray">
       <button
@@ -86,8 +86,18 @@ export default {
       tagList: [],
       noItem: [
         { text: 'write', type: 'fill' },
+        { text: '✍🏽', type: 'fill' },
+        { text: ',', type: 'ghost' },
+        { text: 'add', type: 'border' },
+        { text: '✚', type: 'ghost' },
+        { text: 'and', type: 'ghost' },
+        { text: 'ㅡ', type: 'ghost' },
+        { text: 'download', type: 'fill' },
+        { text: '📂', type: 'fill' },
+        { text: '(', type: 'ghost' },
         { text: 'your', type: 'ghost' },
         { text: 'tags', type: 'border' },
+        { text: ')', type: 'ghost' },
         { text: '🔖', type: 'ghost' }
       ],
       types: ['fill', 'border', 'ghost'],
@@ -187,6 +197,12 @@ export default {
     width: 100%;
     padding: 0.25rem 0.5rem;
     text-align: center;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      background: $Black;
+      color: $White;
+    }
   }
 
   .tagInputBox {
