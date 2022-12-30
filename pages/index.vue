@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <div class="canvas bd_Btm_Gray" :class="getTheme.bg">
+    <div ref="canvas" class="canvas bd_Btm_Gray" :class="getTheme.bg">
       <div v-if="tagList.length > 0" class="textBox">
         <Tag
           v-for="(tag, index) in tagList"
@@ -19,11 +19,12 @@
           :class-name="getTheme"
         />
       </div>
+      <div ref="noShow" v-show="false" />
       <div class="sign" :class="getTheme.ghost">
         {{ signText }}
       </div>
     </div>
-    <button class="save bd_Btm_Gray">save</button>
+    <button class="save bd_Btm_Gray" @click="downloadImage">save</button>
     <div class="tagInputBox bd_Btm_Gray">
       <input
         v-model="tagText"
@@ -68,6 +69,8 @@
 </template>
 
 <script>
+import html2canvas from 'html2canvas';
+import jsPDF from 'jsPDF';
 import themeList from '@/assets/data/theme.json';
 import Tag from '@/components/tag/tag';
 
@@ -160,6 +163,22 @@ export default {
         this.tagList.pop();
         alert('끝');
       }
+    },
+
+    downloadImage() {
+      html2canvas(this.$refs.canvas).then((canvas) => {
+        this.$refs.noShow.appendChild(canvas);
+        const aa = canvas.toDataURL('image/png');
+        console.log(aa);
+
+        // const imgData = canvas.toDataURL('image/png');
+        // document
+        //   .querySelector('a')
+        //   .addEventListener(
+        //     'click',
+        //     (event) => (event.target.href = canvas.toDataURL())
+        //   );
+      });
     }
   }
 };
