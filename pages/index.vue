@@ -30,7 +30,7 @@
         v-model="tagText"
         class="tagInput"
         type="text"
-        placeholder="✍🏻 put your tag on here!"
+        placeholder="✍🏻 tag..."
         @keypress.enter="addTag"
       />
       <div class="tagButtonBox">
@@ -53,7 +53,7 @@
         v-model="signText"
         class="signInput"
         type="text"
-        placeholder="✍🏻 name here!"
+        placeholder="✍🏻 your name..."
       />
       <button class="save bd_Left_Gray" @click="resetTagList">reset</button>
     </div>
