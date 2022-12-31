@@ -167,18 +167,17 @@ export default {
 
     downloadImage() {
       html2canvas(this.$refs.canvas).then((canvas) => {
-        this.$refs.noShow.appendChild(canvas);
-        const aa = canvas.toDataURL('image/png');
-        console.log(aa);
-
-        // const imgData = canvas.toDataURL('image/png');
-        // document
-        //   .querySelector('a')
-        //   .addEventListener(
-        //     'click',
-        //     (event) => (event.target.href = canvas.toDataURL())
-        //   );
+        const imageUri = canvas.toDataURL();
+        this.downloadURI(imageUri, 'thumbnail.png');
       });
+    },
+
+    downloadURI(uri, name) {
+      const link = document.createElement('a');
+      link.download = name;
+      link.href = uri;
+      document.body.appendChild(link);
+      link.click();
     }
   }
 };
