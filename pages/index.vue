@@ -281,7 +281,7 @@ export default {
 
         &:hover {
           .themeText {
-            animation: animate 0.8s linear infinite;
+            animation: animate 0.8s linear;
             animation-timing-function: ease-in-out;
           }
         }
@@ -289,6 +289,12 @@ export default {
         @keyframes animate {
           0% {
             rotate: 0deg;
+          }
+          80% {
+            rotate: 390deg;
+          }
+          90% {
+            rotate: 340deg;
           }
           100% {
             rotate: 360deg;
