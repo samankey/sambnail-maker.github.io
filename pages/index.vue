@@ -33,25 +33,30 @@
         placeholder="✍🏻 put your tag on here!"
         @keypress.enter="addTag"
       />
-      <div class="typeButtonBox bd_Right_Gray bd_Left_Gray">
-        <button
-          v-for="(type, index) in types"
-          :key="index + type"
-          class="typeButton"
-          :class="tagType === type ? 'bg_Black ft_White' : ''"
-          @click="setType(type)"
-        >
-          {{ type }}
-        </button>
+      <div class="tagButtonBox">
+        <div class="typeButtonBox bd_Right_Gray bd_Left_Gray">
+          <button
+            v-for="(type, index) in types"
+            :key="index + type"
+            class="typeButton"
+            :class="tagType === type ? 'bg_Black ft_White' : ''"
+            @click="setType(type)"
+          >
+            {{ type }}
+          </button>
+        </div>
+        <button class="addButton bg_Black ft_White" @click="addTag">✚</button>
       </div>
-      <button class="addButton bg_Black ft_White" @click="addTag">add</button>
     </div>
-    <input
-      v-model="signText"
-      class="signInput"
-      type="text"
-      placeholder="✍🏻 name here!"
-    />
+    <div class="signInputBox">
+      <input
+        v-model="signText"
+        class="signInput"
+        type="text"
+        placeholder="✍🏻 name here!"
+      />
+      <button class="save bd_Left_Gray" @click="resetTagList">reset</button>
+    </div>
     <div class="themeBox bd_Top_Gray">
       <button
         v-for="(color, index) in themeList"
@@ -70,7 +75,6 @@
 
 <script>
 import html2canvas from 'html2canvas';
-import jsPDF from 'jsPDF';
 import themeList from '@/assets/data/theme.json';
 import Tag from '@/components/tag/tag';
 
@@ -135,6 +139,10 @@ export default {
 
     setTheme(themeTitle) {
       this.themeTitle = themeTitle;
+    },
+
+    resetTagList() {
+      this.tagList = [];
     },
 
     addTag() {
@@ -231,24 +239,34 @@ export default {
       text-align: center;
     }
 
-    .typeButtonBox {
-      @include flex-item(space-between);
+    .tagButtonBox {
+      @include flex-item;
       flex: 1;
-      .typeButton {
+
+      .typeButtonBox {
+        @include flex-item(space-between);
         flex: 1;
+
+        .typeButton {
+          flex: 1;
+          padding: 0.25rem 0.5rem;
+        }
+      }
+
+      .addButton {
         padding: 0.25rem 0.5rem;
       }
     }
-
-    .addButton {
-      padding: 0.25rem 0.5rem;
-    }
   }
 
-  .signInput {
-    width: 100%;
-    padding: 0.25rem 0.5rem;
-    text-align: center;
+  .signInputBox {
+    @include flex-item;
+
+    .signInput {
+      width: 100%;
+      padding: 0.25rem 0.5rem;
+      text-align: center;
+    }
   }
 
   .themeBox {
@@ -260,6 +278,22 @@ export default {
       .themeFill {
         padding: 0.5rem;
         border-radius: 6.25rem;
+
+        &:hover {
+          .themeText {
+            animation: animate 0.8s linear infinite;
+            animation-timing-function: ease-in-out;
+          }
+        }
+
+        @keyframes animate {
+          0% {
+            rotate: 0deg;
+          }
+          100% {
+            rotate: 360deg;
+          }
+        }
       }
     }
   }

@@ -1,12 +1,11 @@
 <template>
   <div class="main bg_White">
     <div class="mainBox">
-      <!-- <header class="title Headline ft_White bg_Black bd_Gray">
-        ✨ thumbnail maker ✨
-      </header> -->
-      <!-- <header class="title Headline">thumbnail-maker</header> -->
       <header class="title">THUMBNAILㅡ<br />MAKER</header>
       <Nuxt class="bd_Gray" />
+      <p class="copyright Caption1 ft_Black_40">
+        Copyright 2023. samankeyc All rights reserved.
+      </p>
     </div>
   </div>
 </template>
@@ -18,11 +17,13 @@
 
   .mainBox {
     .title {
-      padding-bottom: 1.25rem;
       border-radius: 6.25rem;
       font-size: 3.75rem;
       font-weight: 700;
-      /* font-family: 'Mermaid1001', sans-serif; */
+    }
+
+    .copyright {
+      padding-top: 0.5rem;
     }
   }
 }
