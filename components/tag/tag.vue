@@ -71,10 +71,10 @@ export default {
 
   &:hover {
     .icon {
+      @include flex-item(center);
       position: absolute;
       top: -0.5rem;
       right: -0.25rem;
-      @include flex-item(center);
       width: 2rem;
       height: 2rem;
       background-color: #fff;
