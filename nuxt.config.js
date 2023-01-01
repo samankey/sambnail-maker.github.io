@@ -11,11 +11,11 @@ const path =
 dotEnv.config({ path });
 
 export default {
-  ssr: true,
+  ssr: false,
 
   telemetry: false,
 
-  target: 'server',
+  target: 'static',
 
   css: ['~/assets/scss/global.scss'],
 
