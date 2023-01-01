@@ -93,7 +93,7 @@ export default {
       tagList: [],
       noItem: [
         { text: 'write', type: 'fill' },
-        { text: '✍🏽', type: 'fill' },
+        { text: '✍🏼', type: 'fill' },
         { text: ',', type: 'ghost' },
         { text: 'add', type: 'border' },
         { text: '✚', type: 'ghost' },
