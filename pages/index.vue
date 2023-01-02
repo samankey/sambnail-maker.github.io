@@ -19,13 +19,12 @@
           :class-name="getTheme"
         />
       </div>
-      <div ref="noShow" v-show="false" />
       <div class="sign" :class="getTheme.ghost">
         {{ signText }}
       </div>
     </div>
     <button class="save bd_Btm_Gray" @click="downloadImage">save</button>
-    <div class="tagInputBox bd_Btm_Gray">
+    <section class="tagInputBox bd_Btm_Gray">
       <input
         v-model="tagText"
         class="tagInput"
@@ -47,8 +46,8 @@
         </div>
         <button class="addButton bg_Black ft_White" @click="addTag">✚</button>
       </div>
-    </div>
-    <div class="signInputBox">
+    </section>
+    <section class="signInputBox">
       <input
         v-model="signText"
         class="signInput"
@@ -56,8 +55,8 @@
         placeholder="✍🏻 your name..."
       />
       <button class="save bd_Left_Gray" @click="resetTagList">reset</button>
-    </div>
-    <div class="themeBox bd_Top_Gray">
+    </section>
+    <section class="themeBox bd_Top_Gray">
       <button
         v-for="(color, index) in themeList"
         :key="index + color"
@@ -69,7 +68,7 @@
           <div class="themeText Title1" :class="`${color.fill_ft}`">a</div>
         </div>
       </button>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -79,10 +78,10 @@ import themeList from '@/assets/data/theme.json';
 import Tag from '@/components/tag/tag';
 
 export default {
-  layout: 'main',
   components: {
     Tag
   },
+  layout: 'main',
 
   data() {
     return {
@@ -146,7 +145,7 @@ export default {
     },
 
     addTag() {
-      const text = { text: this.tagText, type: this.tagType };
+      const text = { id: Math.random(), text: this.tagText, type: this.tagType };
       if (!this.tagText) {
         alert('없어');
       } else {
@@ -158,7 +157,7 @@ export default {
     deleteTag(tag) {
       const index = this.tagList
         .map((item) => {
-          return item.text === tag;
+          return item.text === tag.text && item.id === tag.id;
         })
         .indexOf(true);
       this.tagList.splice(index, 1);
